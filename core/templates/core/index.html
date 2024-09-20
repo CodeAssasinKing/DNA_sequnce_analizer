@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA Sequence Visualizer</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>DNA Sequence Visualizer</h1>
+
+        <!-- DNA Sequence Input -->
+        <textarea id="sequenceInput" rows="4" cols="50" placeholder="Enter DNA sequence (A, T, C, G)"></textarea>
+        <br>
+        <label for="dnaFile">Or upload a DNA file (.txt): </label>
+        <input type="file" id="dnaFile" accept=".txt">
+        <br><br>
+
+        <!-- Buttons -->
+        <button id="analyzeBtn">Analyze Sequence</button>
+        <button id="downloadBtn">Download Sequence</button>
+
+        <div id="sequenceDisplay" class="sequence-box"></div>
+
+        <!-- Sequence Stats -->
+        <div id="stats">
+            <p><strong>A Count:</strong> <span id="aCount">0</span></p>
+            <p><strong>T Count:</strong> <span id="tCount">0</span></p>
+            <p><strong>C Count:</strong> <span id="cCount">0</span></p>
+            <p><strong>G Count:</strong> <span id="gCount">0</span></p>
+            <p><strong>GC Content:</strong> <span id="gcContent">0%</span></p>
+            <p><strong>Complementary Strand:</strong> <span id="complementaryStrand">N/A</span></p>
+            <p><strong>Reverse Complement:</strong> <span id="reverseComplement">N/A</span></p>
+        </div>
+        <canvas id="dna-chart" width="400" height="200"></canvas>
+    </div>
+
+    <script src="{% static 'core/js/chart.js' %}"></script>
+    <script src="{% static 'core/js/scripts.js' %}"></script>
+</body>
+</html>
